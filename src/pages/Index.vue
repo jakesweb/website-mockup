@@ -1,33 +1,36 @@
 <template>
   <Layout>
-
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-
-    <h1>Hello, world!</h1>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
-
+    <div class="intro">
+      <h1>Shipping Worldwide</h1>
+      <p>
+        Where you can ship anything, anywhere, anytime. Using our shipping form,
+        you can order pickup for your packages and pay for them all at once. You
+        can also track your order so you can trust on time delviery.
+      </p>
+      <g-image src="~/image/world.jpg" />
+    </div>
   </Layout>
 </template>
 
 <script>
 export default {
   metaInfo: {
-    title: 'Hello, world!'
-  }
-}
+    title: "Home",
+  },
+};
 </script>
 
 <style>
-.home-links a {
-  margin-right: 1rem;
+.intro h1 {
+  font-weight: 600;
+  font-size: 2.5rem;
+  text-align: center;
+}
+.intro p {
+  font-weight: 300;
+  font-size: 1.25rem;
+}
+.intro img {
+  width: 100%;
 }
 </style>
