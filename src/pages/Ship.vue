@@ -46,6 +46,13 @@
       ></vue-google-autocomplete>
       <label for="apt">Apartment, Suite, or Unit</label>
       <input type="text" name="deliver-apt" id="deliver-apt" />
+      <label for="overnight">Overnight</label>
+      <input
+        type="checkbox"
+        name="overnight"
+        id="overnight"
+        v-model="overnight"
+      />
       <label for="insurance">Insurance</label>
       <input
         type="checkbox"
@@ -108,7 +115,7 @@
       </button>
       <p v-if="shippingPrice > 0">
         Total Price
-        <span>{{ shippingPrice }}</span>
+        <span>{{ shippingPrice.toFixed(2) }}</span>
       </p>
     </form>
   </Layout>
@@ -131,6 +138,7 @@ export default {
       length: "",
       width: "",
       height: "",
+      overnight: false,
       insurance: false,
       insuranceLevel: "",
       shippingPrice: 0,
@@ -143,11 +151,15 @@ export default {
     // this.address - country, locality, postal_code, street_number + route, administrative_area_level_1
     getShippingData: function(addressData, placeResultData, id) {
       this.shippingAddress = addressData;
+      console.log(this.shippingAddress);
     },
     getShippedData: function(addressData, placeResultData, id) {
       this.shippedAddress = addressData;
+      console.log(this.shippedAddress);
     },
-    calculatePrice: function(e) {
+    calculatePrice: async function(e) {
+      var distance = 0.0;
+
       e.preventDefault();
       this.shippingPrice = 0;
       var size = this.length * this.width * this.height;
@@ -184,6 +196,36 @@ export default {
             break;
         }
       }
+
+      await fetch(
+        `http://router.project-osrm.org/route/v1/driving/-81.175842,35.316551;-81.037811,35.243881?overview=false`
+      )
+        .then((res) => res.json())
+        .then((data) => (distance = data.routes[0].distance));
+
+      // var distance = fetch(
+      //   `http://router.project-osrm.org/route/v1/driving/${
+      //     this.shippingAddress.longitude
+      //   },${this.shippingAddress.latitude};${this.shippedAddress.longitude},${
+      //     this.shippedAddress.latitude
+      //   }?overview=false`
+      // )
+      //   .then((res) => {
+      //     return res.routes[0].distance;
+      //   })
+      //   .catch((error) => {
+      //     return error;
+      //   });
+
+      console.log(distance);
+
+      if (this.overnight) {
+        this.shippingPrice += distance * 0.008;
+      } else {
+        this.shippingPrice += distance * 0.0006;
+      }
+
+      console.log(this.shippingPrice);
     },
   },
 };
