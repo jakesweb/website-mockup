@@ -2,7 +2,7 @@
 
 This is a testing site I am using to expirement with Gridsome/Vue.js.
 
-Currently, I am running the site on Netlify [https://shipping-worldwide.netlify.app/]
+Currently, I am running the site on Netlify at https://shipping-worldwide.netlify.app/
 
 ## To Test
 
