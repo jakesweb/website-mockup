@@ -1,14 +1,13 @@
-# Default starter for Gridsome
+## Shipping Worldwide - Gridsome Testing
 
-This is the project you get when you run `gridsome create new-project`.
+This is a testing site I am using to expirement with Gridsome/Vue.js.
 
-### 1. Install Gridsome CLI tool if you don't have
+Currently, I am running the site on Netlify [https://shipping-worldwide.netlify.app/]
 
-`npm install --global @gridsome/cli`
+## To Test
 
-### 2. Create a Gridsome project
+To test the site, you just `npm install` and then run `npm run develop` which is a shortcut to run `gridsome develop`
 
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+## To Build
+
+`gridsome build` runs the build script and the static site is hosted in the dist directory
