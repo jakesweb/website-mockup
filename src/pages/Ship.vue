@@ -248,5 +248,7 @@ fieldset label {
 }
 button {
   margin: 10px 0;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 </style>

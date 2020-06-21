@@ -1,19 +1,48 @@
 <template>
   <Layout>
     <h1>Track a Package</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error doloremque
-      omnis animi, eligendi magni a voluptatum, vitae, consequuntur rerum illum
-      odit fugit assumenda rem dolores inventore iste reprehenderit maxime!
-      Iusto.
-    </p>
+    <form>
+      <input
+        id="shippingId"
+        name="shippingId"
+        placeholder="Tracking Number"
+        v-model="shippingId"
+      />
+      <button type="button" name="submit" id="submit" v-on:click="onSubmit">
+        Track!
+      </button>
+    </form>
   </Layout>
 </template>
 
 <script>
 export default {
   metaInfo: {
-    title: "About us",
+    title: "Tracking",
+  },
+  data: function() {
+    return {
+      shippingId: "",
+    };
+  },
+  methods: {
+    onSubmit: function(e) {
+      e.preventDefault();
+      console.log(this.shippingId);
+    },
   },
 };
 </script>
+
+<style>
+input {
+  display: block;
+  width: 60%;
+}
+button {
+  margin: 10px 0;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: block;
+}
+</style>
