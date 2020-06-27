@@ -39,13 +39,13 @@
       <label for="deliver">Deliver</label>
       <vue-google-autocomplete
         ref="address"
-        id="delivery"
+        id="deliver"
         classname="form-control"
         placeholder="Please type the address for delivery"
         v-on:placechanged="getShippedData"
       ></vue-google-autocomplete>
       <label for="apt">Apartment, Suite, or Unit</label>
-      <input type="text" name="deliver-apt" id="deliver-apt" />
+      <input type="text" name="deliverApt" id="deliverApt" />
       <label for="overnight">Overnight</label>
       <input
         type="checkbox"
@@ -103,9 +103,9 @@
         v-on:placechanged="getShippingData"
       ></vue-google-autocomplete>
       <label for="apt">Apartment, Suite, or Unit</label>
-      <input type="text" name="pickup-apt" id="pickup-apt" />
+      <input type="text" name="pickupApt" id="pickup-apt" />
       <label for="pickup-time">Pickup Time</label>
-      <input type="date" name="pickup-time" id="pickup-time" />
+      <input type="date" name="pickupTime" id="pickup-time" />
       <button
         name="calculateShipping"
         id="calculateShipping"
